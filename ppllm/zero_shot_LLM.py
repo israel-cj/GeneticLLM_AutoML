@@ -26,7 +26,7 @@ def execute_and_evaluate_code_block(X, y, code, task):
 
     return None, performance, pipe
 
-def get_dataset_info(X, y, y_name, task, n=10):
+def get_dataset_info(X, y, task, n=10):
     output = ""
     # Number of instances
     num_instances = X.shape[0]
@@ -47,7 +47,6 @@ def get_dataset_info(X, y, y_name, task, n=10):
     output += f"Number of missing values: {num_missing}\n"
     output += f"First {n} column names: {first_n_columns}\n"
     output += f"Example values from the first {n} columns: {example_values}\n"
-    output += f"Target variable (y) name: {y_name}\n"
     output += f"First {n} values from the target y: {target_values}\n"
 
     output += f"""
@@ -86,7 +85,7 @@ def generate_code(model, message):
 #     return response.json()
 
 def generated_zero_shot_pipeline(X, y, task='classification', model='gpt-4o-mini'):
-    prompt_mf = get_dataset_info(X, y, y.name, task)
+    prompt_mf = get_dataset_info(X, y, task)
 
     message_sklearn = [
         {"role": "system",
