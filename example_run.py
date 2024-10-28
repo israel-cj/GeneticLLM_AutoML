@@ -23,10 +23,9 @@ for task_id in tasks:
 # datasetID = task.dataset_id
 # dataset_local = openml.datasets.get_dataset(datasetID) # 0 2073
 #####
-dataset_local = openml.datasets.get_dataset(benchmark_ids[1]) # Hard 41147
+# dataset_local = openml.datasets.get_dataset(benchmark_ids[1]) # Hard 41147
 # dataset_local = openml.datasets.get_dataset(41147)
-print('dataset_local name', dataset_local.name)
-iterations = 4
+dataset_local = openml.datasets.get_dataset(181) # 181 is from task 2073
 
 X, y, categorical_indicator, attribute_names = dataset_local.get_data(
             dataset_format="dataframe", target=dataset_local.default_target_attribute

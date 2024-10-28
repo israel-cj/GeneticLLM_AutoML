@@ -1,9 +1,6 @@
 import time
-from openai import OpenAI
 from .zero_shot_LLM import generated_zero_shot_pipeline
 from .optuna_optimization import optimize
-
-client = OpenAI()
 
 list_pipelines = []
 
@@ -15,7 +12,7 @@ def generate_pipelines(
         y_origin= None,
         timeout=300,
 ):
-
+    breakpoint()
     for number_of_trials in range(4):
         try:
             first_individual = generated_zero_shot_pipeline(X=X, y=y_origin, task=task, model=model)
