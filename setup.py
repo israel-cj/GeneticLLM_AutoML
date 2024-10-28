@@ -10,7 +10,7 @@ setup(
     author="Israel Campero Jurado and Joaquin Vanschoren",
     author_email="learsi1911@gmail.com",
     url="https://github.com/israel-cj/GeneticLLM_AutoML.git",
-    python_requires=">=3.10",
+    python_requires=">=3.12",
     install_requires=[
         'optuna==4.0.0',
         'openai==1.52.2',
