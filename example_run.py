@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from ppllm import PP_LLM
 import openml
-
+#
 # classification
 benchmark_ids = []
 suite = openml.study.get_suite(271) # Classification
@@ -23,7 +23,8 @@ for task_id in tasks:
 # datasetID = task.dataset_id
 # dataset_local = openml.datasets.get_dataset(datasetID) # 0 2073
 #####
-dataset_local = openml.datasets.get_dataset(benchmark_ids[0]) # Hard 41147
+dataset_local = openml.datasets.get_dataset(benchmark_ids[1]) # Hard 41147
+# dataset_local = openml.datasets.get_dataset(41147)
 print('dataset_local name', dataset_local.name)
 iterations = 4
 
@@ -34,13 +35,9 @@ X, y, categorical_indicator, attribute_names = dataset_local.get_data(
 
 type_task = "classification"
 dict_params = {
-    # 'dataset_name': dataset_local.name,
     'task': type_task,
-    # 'llm_model': "gpt-4",
-    # 'llm_model': "gpt-3.5-turbo",
-    'llm_model': "gpt-4o",
-    'iterations': iterations,
-    'max_total_time': 300,
+    'llm_model': "gpt-4o-mini",
+    'max_total_time': 60,
 }
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_state=0)
@@ -81,12 +78,9 @@ print(f'probabilities: {probabilities}')
 #
 # ### Setup and Run LLM AutoML - This will be billed to your OpenAI Account!
 # automl = PP_LLM(
-#     # llm_model="gpt-3.5-turbo",
-#     # llm_model="gpt-4",
-#     llm_model: "gpt-3.5-turbo",
-#     iterations=iterations,
+#     llm_model="gpt-4o-mini",
 #     task=type_task,
-#     max_total_time=3600,
+#     max_total_time=60,
 #     )
 #
 # # The iterations happen here:
