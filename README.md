@@ -2,7 +2,7 @@
 
 This project is based on utilizing LLMs and Genetic Programming (GP) to create a model for a given dataset. The LLM specialize in creating a zero-shot model and using GP for further optimization. It serves as a tool to simplify the process of creating a machine learning model with just a few lines of code, where the entire pipeline is constructed and optimized by these combined tools.
 
-There are two main requirements: determining whether the problem is classification or regression and providing the dataset split into 'X' and 'y'.
+There are two main requirements: determining whether the problem is classification or regression and providing the dataset split into 'X' and 'y'. Don't forget to set up the OPENAI KEY in the ENV.
 
 
 ## Classification
@@ -49,7 +49,7 @@ from sklearn.model_selection import train_test_split
 from ppllm import PP_LLM
 
 
-openai.api_key = " " 
+# Define the OPENAI KEY IN THE ENV
 type_task = 'regression'
 dataset = openml.datasets.get_dataset(41021) # 41021 is Moneyball dataset: https://www.openml.org/search?type=data&status=active&id=41021
 X, y, categorical_indicator, attribute_names = dataset.get_data(
