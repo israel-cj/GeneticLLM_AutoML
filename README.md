@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from ppllm import PP_LLM
 
-openai.api_key = " " 
+# Define the OPENAI KEY IN THE ENV
 
 dataset = openml.datasets.get_dataset(40983) # 40983 is Wilt dataset: https://www.openml.org/search?type=data&status=active&id=40983
 X, y, categorical_indicator, attribute_names = dataset.get_data(
@@ -26,9 +26,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, random_sta
 
 ### Setup and Run LLM pipeline - This will be billed to your OpenAI Account!
 automl = PP_LLM(
-    llm_model="gpt-4o", # You can choose "gpt-4" in case you in case you have a paid account
-    iterations=4,
-    max_total_time = 3600,
+    llm_model="gpt-4o-mini",
+    max_total_time = 300,
     )
 
 automl.fit(X_train, y_train)
@@ -61,10 +60,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
 ### Setup and Run LLM pipeline - This will be billed to your OpenAI Account!
 automl = PP_LLM(
-    llm_model="gpt-4o", # You can choose "gpt-4" in case you in case you have a paid account
-    iterations=4,
+    llm_model="gpt-4o-mini",
     task=type_task,
-    max_total_time=3600
+    max_total_time=300
     )
 
 automl.fit(X_train, y_train)
