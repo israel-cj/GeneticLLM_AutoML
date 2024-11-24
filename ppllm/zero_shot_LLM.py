@@ -52,7 +52,7 @@ def get_dataset_info(X, y, task, n=10):
     output += f"""
     The dataframe split in ‘X_train’ and ‘y_train’ is loaded in memory.
     This code was written by an expert data scientist working to create a suitable pipeline (preprocessing techniques and estimator) for such dataframe, the task is ‘{task}’. It is a snippet of code that imports the packages necessary to create a ‘sklearn’ pipeline 
-    You are trying to defeat two baselines XGBoost and Random Forest.
+    You can only use models from the sklearn.ensemble module, e.g. Gradient Boosting Machines, Random Forest, Extra Trees, etc.
     
     Code formatting for each pipeline created:
     ```python
@@ -89,7 +89,7 @@ def generated_zero_shot_pipeline(X, y, task='classification', model='gpt-4o-mini
 
     message_sklearn = [
         {"role": "system",
-         "content": "You are an expert data scientist, where given the metafeatures of a dataset you will return the a single sklean pipeline that will work on it. You answer only by generating code. Answer as concisely as possible."},
+         "content": "You are an expert data scientist, where given the metafeatures of a dataset you will return the a single sklean tree based pipeline (from sklearn.ensemble) that will work on it. You answer only by generating code. Answer as concisely as possible."},
         {"role": "user", "content": prompt_mf}
     ]
     for counter_working_model in range(5): # Five chances
