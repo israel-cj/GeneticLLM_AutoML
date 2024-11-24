@@ -2,7 +2,7 @@ from openai import OpenAI
 from sklearn.model_selection import train_test_split
 from .run_llm_code import run_llm_code_preprocessing
 
-client = OpenAI()
+client = OpenAI(api_key="")
 
 def execute_and_evaluate_code_block(X, y, code, task):
     train_size = 0.25 if len(X) > 100000 else 0.75
