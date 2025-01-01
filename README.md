@@ -2,8 +2,12 @@
 
 This project is based on utilizing LLMs and Genetic Programming (GP) to create a model for a given dataset. The LLM specialize in creating a zero-shot model and using GP for further optimization. It serves as a tool to simplify the process of creating a machine learning model with just a few lines of code, where the entire pipeline is constructed and optimized by these combined tools.
 
-There are two main requirements: determining whether the problem is classification or regression and providing the dataset split into 'X' and 'y'. Don't forget to set up the OPENAI KEY in the ENV.
+For the framework there are two main requirements: determining whether the problem is classification or regression and providing the dataset split into 'X' and 'y'. Don't forget to set up the OPENAI KEY in the ENV.
 
+
+## Figures and Data
+
+The Figures and data are in the folder "Figures and data", please run the notebook of your interest to reproduce the paper.
 
 ## Classification
 
